@@ -8,7 +8,7 @@ jQuery(window).ready(function(){
 		imoviesVideoPlayer = imoviesVideoPlayer.length > 1 ? imoviesVideoPlayer[2] : imoviesVideoPlayer[0];
 		imoviesVideoPlayer.addEventListener("durationchange",function(){
 			if(imoviesVideoPlayer.duration > 20){
-				jQuery(newButton).attr("style","background-color:#299ecc;border-radius: 3px;padding-top:0px;margin-top:0px;height: 19px;color:white");
+				jQuery(newButton).attr("style","background-color:#299ecc;border-radius: 3px;padding-top:0px;margin-top:0px;margin-left:8px;height: 19px;color:white");
 				jQuery(newButton).attr({
 					"href": imoviesVideoPlayer.src,
 					"style": "background-color:#299ecc;border-radius: 3px;padding-top:0px;margin-top:0px;height: 19px;color:white",
