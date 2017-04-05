@@ -1,21 +1,36 @@
-jQuery(window).ready(function(){
+(function($) {
+
+$(window).ready(function(){
 	setTimeout(function(){
-		var socialButtons = jQuery("#sociallinks").find("div")[0];
-		var newButton = document.createElement("a");
-		newButton.innerHTML = "გადმოწერა";
-		var imoviesVideoPlayer = jQuery("video");
+		var socialButtons = $("#sociallinks").find("div")[0];
+
+		var downloadButton = document.createElement("a");
+		downloadButton.innerHTML = "გადმოწერა";
+
+		var video = $("video");
 		// on some computers there are 3 video tags (and not 1 like on mine)
-		imoviesVideoPlayer = imoviesVideoPlayer.length > 1 ? imoviesVideoPlayer[2] : imoviesVideoPlayer[0];
-		imoviesVideoPlayer.addEventListener("durationchange",function(){
-			if(imoviesVideoPlayer.duration > 20){
-				jQuery(newButton).attr({
-					"href": imoviesVideoPlayer.src,
-					"style": "background-color:#299ecc;border-radius: 3px;padding-top:0px;margin-top:0px;margin-left:8px;height: 19px;color:white",
-					"download": jQuery(".film_title.notbold.blue.film_title_eng").html(),
-					"class": "button"
+		video = video.length > 1 ? video[2] : video[0];
+
+		video.addEventListener("durationchange",function(){
+			// if video is less than 20 seconds, it's an ad
+			if (video.duration > 20) {
+				$(downloadButton).attr({
+					"href": video.src, // video source
+					"download": $(".film_title.notbold.blue.film_title_eng").html(), // html5 download
+					"class": "button" // imovies button class
+				}).css({
+					"background-color": "#299ecc",
+					"border-radius"   : "3px",
+					"padding-top"     : "0",
+					"margin-left"     : "0",
+					"margin-top"      : "0",
+					"height"          : "19px",
+					"color"           : "white",
 				});
-				jQuery(socialButtons).append(newButton);
+				$(socialButtons).append(downloadButton);
 			}
 		});
-	},1000);
+	}, 2000);
 });
+
+})(jQuery, window);

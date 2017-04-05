@@ -1,12 +1,12 @@
 {
     "manifest_version": 2,
 
-    "name": "Download movies from imovies.ge",
-    "description": "This Extension allows you to download movies from imovies.ge",
-    "version": "0.1",
+    "name": "Download movies from imovies.cc",
+    "description": "This Extension allows you to download movies from imovies.cc",
+    "version": "0.2",
 
     "permissions": [
-        "*://www.imovies.ge/*"
+        "*://www.imovies.cc/*"
     ],
 
     "icons": {
@@ -16,7 +16,7 @@
 
     "content_scripts": [
         {
-            "matches": ["*://www.imovies.ge/movies/*"],
+            "matches": ["*://www.imovies.cc/movies/*"],
             "js": ["jquery.js","script.js"],
             "run_at": "document_end"
 	    }
